@@ -1,9 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://duj1xojs3repf"]
+[gd_scene load_steps=8 format=4 uid="uid://duj1xojs3repf"]
 
 [ext_resource type="PackedScene" uid="uid://5aqihekkp2hm" path="res://flipper/flipper.tscn" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://clolwy2528iuo" path="res://assets/sprites/pinball_flipper_sprite_sheet.png" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bl7bd3pk1h58c" path="res://assets/sprites/vertical-wall.png" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://8q6bruih8sxw" path="res://ball/ball.tscn" id="2_h2yge"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+texture = ExtResource("1_h2yge")
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+texture = ExtResource("2_1bvp3")
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_h2yge"]
+sources/0 = SubResource("TileSetAtlasSource_1bvp3")
+sources/1 = SubResource("TileSetAtlasSource_lquwl")
 
 [node name="Main" type="Node2D"]
 
@@ -11,10 +28,11 @@
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TilemapLayers"]
 position = Vector2(8, 0)
+tile_map_data = PackedByteArray("AAALAA0AAQAAAAAAAAALAAwAAQAAAAAAAAALAAsAAQAAAAAAAAALAAoAAQAAAAAAAAALAAkAAQAAAAAAAAALAAgAAQAAAAAAAAALAAcAAQAAAAAAAAALAAYAAQAAAAAAAAALAAUAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
 [node name="Flipper_right" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(170, 138)
+position = Vector2(155, 207)
 
 [node name="Ball" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(164, 89)
+position = Vector2(148, 93)
