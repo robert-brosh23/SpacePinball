@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl7bd3pk1h58c"
-path="res://.godot/imported/vertical-wall.png-00b72677089edc48cad815efdead2ef6.ctex"
+uid="uid://c3j8oc80rrwip"
+path="res://.godot/imported/Pinball_walls_sheet.png-eb69344d4353302d6b752b66f34e0f93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/vertical-wall.png"
-dest_files=["res://.godot/imported/vertical-wall.png-00b72677089edc48cad815efdead2ef6.ctex"]
+source_file="res://assets/sprites/Pinball_walls_sheet.png"
+dest_files=["res://.godot/imported/Pinball_walls_sheet.png-eb69344d4353302d6b752b66f34e0f93.ctex"]
 
 [params]
 

@@ -1,23 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://8q6bruih8sxw"]
 
 [ext_resource type="Script" uid="uid://bwmbwoh42w1lh" path="res://ball/ball.gd" id="1_pwunn"]
-[ext_resource type="Texture2D" uid="uid://cgcugaww6sfiu" path="res://assets/sprites/pinball_ball.png" id="2_biv8x"]
+[ext_resource type="Texture2D" uid="uid://ce5i4uwh2pu05" path="res://assets/sprites/ball-2.png" id="2_pwunn"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pwunn"]
-bounce = 0.37
+friction = 0.0
+bounce = 0.33
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xd6y"]
-radius = 4.5
+radius = 3.7
 
 [node name="Ball" type="RigidBody2D"]
+mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
-gravity_scale = 0.5
+gravity_scale = 0.25
+lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_pwunn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_biv8x")
+texture = ExtResource("2_pwunn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6xd6y")

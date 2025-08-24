@@ -1,20 +1,29 @@
-class_name Flipper extends CharacterBody2D
+class_name Flipper extends StaticBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var flipper_up_wav = preload("res://assets/sounds/Pinball_flipper_up.wav")
 var flipper_down_wav = preload("res://assets/sounds/Pinball_flipper_down.wav")
-@export var flip_up: bool = false
-@export var flip_down: bool = false
+
+@export var is_left: bool = false
 
 func _physics_process(delta: float) -> void:
-	process_controls(delta)
+	if !is_left:
+		process_controls(delta)
+	else:
+		process_controls_left(delta)
 	
 func process_controls(delta:float) -> void:
 	if Input.is_action_just_pressed("right_bumper"):
 		animation_player.play("press")
 	if Input.is_action_just_released("right_bumper"):
 		animation_player.play("un_press")
+		
+func process_controls_left(delta:float) -> void:
+	if Input.is_action_just_pressed("left_bumper"):
+		animation_player.play("press_left")
+	if Input.is_action_just_released("left_bumper"):
+		animation_player.play("unpress_left")
 
 func play_sound(sound: Resource) -> void:
 	var audioPlayer = AudioStreamPlayer.new()

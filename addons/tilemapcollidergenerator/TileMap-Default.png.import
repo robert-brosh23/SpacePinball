@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcugaww6sfiu"
-path="res://.godot/imported/pinball_ball.png-61346410075459a617379bc2df0cbbaf.ctex"
+uid="uid://sokuodd8w3kn"
+path="res://.godot/imported/TileMap-Default.png-ed51f8f411bb4a27e14a16bd4694416c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/pinball_ball.png"
-dest_files=["res://.godot/imported/pinball_ball.png-61346410075459a617379bc2df0cbbaf.ctex"]
+source_file="res://addons/tilemapcollidergenerator/TileMap-Default.png"
+dest_files=["res://.godot/imported/TileMap-Default.png-ed51f8f411bb4a27e14a16bd4694416c.ctex"]
 
 [params]
 

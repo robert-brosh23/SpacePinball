@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs6f6bvxxk3rk"]
+
+[ext_resource type="Script" uid="uid://bx8cvt0chtaij" path="res://bumper/bumper.gd" id="1_anews"]
+[ext_resource type="Texture2D" uid="uid://17hyeuwksf2s" path="res://assets/sprites/bumper-2.png" id="2_anews"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_anews"]
+radius = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rcrj"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_7rcrj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_anews"]
+resource_name = "bumber_hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [null],
+"method": &"play_laser_sound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_67fws"]
+_data = {
+&"RESET": SubResource("Animation_7rcrj"),
+&"bumber_hit": SubResource("Animation_anews")
+}
+
+[node name="Bumper" type="Node2D"]
+script = ExtResource("1_anews")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_anews")
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_anews")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_7rcrj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_67fws")
+}
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
