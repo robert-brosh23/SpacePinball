@@ -181,7 +181,7 @@ tile_set = SubResource("TileSet_h2yge")
 position = Vector2(163, 219)
 
 [node name="Ball" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(232, 42)
+position = Vector2(91, 125)
 
 [node name="Flipper_left" parent="." instance=ExtResource("5_lquwl")]
 position = Vector2(93, 219)
