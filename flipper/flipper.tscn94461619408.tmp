@@ -1,7 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://5aqihekkp2hm"]
 
 [ext_resource type="Script" uid="uid://byer50ew77ylf" path="res://flipper/flipper.gd" id="1_1ehra"]
-[ext_resource type="Texture2D" uid="uid://cv3ilnhtxbkna" path="res://assets/sprites/flipper-3.png" id="2_1ehra"]
+[ext_resource type="Texture2D" uid="uid://ca7gjmdy8yw0q" path="res://assets/sprites/flipper-2.png" id="2_5s54j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5s54j"]
 
 [sub_resource type="Animation" id="Animation_vjjdo"]
 length = 0.001
@@ -29,6 +31,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(27, -10, 3, 8, 2, 12, 0, 13, -20, 19, -26, 19, -28, 12, -28, 9, -27, 8, -25, 7)]
+}
 
 [sub_resource type="Animation" id="Animation_qqsy2"]
 resource_name = "press"
@@ -50,38 +64,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:constant_angular_velocity")
+tracks/1/path = NodePath("..:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [28.7979, 0.0]
+"update": 0,
+"values": [0.0, 1.0472]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Sprite2D:frame")
+tracks/2/path = NodePath(".:constant_angular_velocity")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.012, 0.028, 0.0498),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [28.7979, 0.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("..:rotation")
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.35263]
+"update": 1,
+"values": [PackedVector2Array(27, -10, 3, 8, 2, 12, 0, 13, -20, 19, -26, 19, -28, 12, -28, 9, -27, 8, -25, 7), PackedVector2Array(27, -10, 3, 8, 2, 9, 0, 10, -20, 14, -26, 14, -28, 12, -28, 9, -27, 8, -25, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_5s54j"]
@@ -116,26 +130,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Sprite2D:frame")
+tracks/2/path = NodePath("..:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.012, 0.028, 0.0498),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.0472]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("..:rotation")
+tracks/3/path = NodePath("CollisionPolygon2D:polygon")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.35263]
+"update": 1,
+"values": [PackedVector2Array(27, -10, 3, 8, 2, 12, 0, 13, -20, 19, -26, 19, -28, 12, -28, 9, -27, 8, -25, 7), PackedVector2Array(27, -10, 3, 8, 2, 9, 0, 10, -20, 14, -26, 14, -28, 12, -28, 9, -27, 8, -25, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_ace8q"]
@@ -165,19 +179,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.35263, 0.0]
+"values": [1.0472, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Sprite2D:frame")
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.022, 0.038, 0.0498),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [3, 2, 1, 0]
+"values": [PackedVector2Array(27, -10, 3, 8, 2, 9, 0, 10, -20, 14, -26, 14, -28, 12, -28, 9, -27, 8, -25, 7), PackedVector2Array(27, -10, 3, 8, 2, 12, 0, 13, -20, 19, -26, 19, -28, 12, -28, 9, -27, 8, -25, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_rmqp8"]
@@ -207,7 +221,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-1.5708, 0.0]
+"values": [-1.0472, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionPolygon2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [PackedVector2Array(27, -10, 3, 8, 2, 9, 0, 10, -20, 14, -26, 14, -28, 12, -28, 9, -27, 8, -25, 7), PackedVector2Array(27, -10, 3, 8, 2, 12, 0, 13, -20, 19, -26, 19, -28, 12, -28, 9, -27, 8, -25, 7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rmqp8"]
@@ -219,29 +245,23 @@ _data = {
 &"unpress_left": SubResource("Animation_rmqp8")
 }
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5s54j"]
-
 [node name="Flipper_right" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_1ehra")
-offset = Vector2(-11.3731, 1.5337)
-hframes = 4
+[node name="Flipper" type="StaticBody2D" parent="."]
+position = Vector2(-11, -6)
+physics_material_override = SubResource("PhysicsMaterial_5s54j")
+script = ExtResource("1_1ehra")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../StaticBodyPivot/Flipper")
+[node name="Sprite2D" type="Sprite2D" parent="Flipper"]
+position = Vector2(11, 6)
+texture = ExtResource("2_5s54j")
+offset = Vector2(-11.3731, 1.5337)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Flipper"]
 libraries = {
 &"": SubResource("AnimationLibrary_rmqp8")
 }
 
-[node name="StaticBodyPivot" type="Node2D" parent="."]
-position = Vector2(1, 1)
-
-[node name="Flipper" type="StaticBody2D" parent="StaticBodyPivot"]
-position = Vector2(-11, -5)
-physics_material_override = SubResource("PhysicsMaterial_5s54j")
-script = ExtResource("1_1ehra")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBodyPivot/Flipper"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flipper"]
 position = Vector2(13, 1)
-polygon = PackedVector2Array(2, -2, 2, 7, -17, 20, -20, 20, -21, 19, -21, 16, -5, 0)
+polygon = PackedVector2Array(27, -10, 3, 8, 2, 12, 0, 13, -20, 19, -26, 19, -28, 12, -28, 9, -27, 8, -25, 7)

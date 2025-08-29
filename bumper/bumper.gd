@@ -9,17 +9,12 @@ var laser_1_wav = preload("res://assets/sounds/Laser_1.wav")
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	
 	if body is Ball:
-		print("ball position: ", body.position, "bumper position: ", position)
 		var normal = (body.position - position).normalized()
 		if body.linear_velocity.dot(normal) > 0:
 			normal = -normal
-		var angle = normal.angle()
-		print(angle)
 		
 		var reflected = body.linear_velocity.bounce(normal)
 		body.linear_velocity = reflected
-		
-		#body.apply_central_impulse(Vector2(cos(angle) * BUMPER_STRENGTH, sin(angle) * BUMPER_STRENGTH))
 		
 		animation_player.play("bumber_hit")
 		

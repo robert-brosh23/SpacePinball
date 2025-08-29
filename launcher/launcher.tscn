@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceo0p7kybnrsx"]
+[gd_scene load_steps=6 format=3 uid="uid://ceo0p7kybnrsx"]
 
 [ext_resource type="Script" uid="uid://b3aliimlyetiv" path="res://launcher/launcher.gd" id="1_dq48e"]
 [ext_resource type="Texture2D" uid="uid://dlcob33esw8mk" path="res://assets/sprites/launcher.png" id="1_pedqv"]
 [ext_resource type="Texture2D" uid="uid://cn6onvgg2272b" path="res://assets/sprites/spring_for_launcher.png" id="2_dq48e"]
+[ext_resource type="AudioStream" uid="uid://b17aumcydccsb" path="res://assets/sounds/wind_up.wav" id="4_1u6u5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pedqv"]
 size = Vector2(12, 41)
@@ -23,3 +24,6 @@ texture = ExtResource("1_pedqv")
 position = Vector2(0, 10)
 texture = ExtResource("2_dq48e")
 offset = Vector2(0, -10)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1u6u5")

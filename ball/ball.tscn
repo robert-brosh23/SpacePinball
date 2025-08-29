@@ -13,7 +13,7 @@ radius = 3.7
 [node name="Ball" type="RigidBody2D"]
 mass = 0.2
 physics_material_override = SubResource("PhysicsMaterial_pwunn")
-gravity_scale = 0.25
+gravity_scale = 0.22
 lock_rotation = true
 continuous_cd = 2
 contact_monitor = true

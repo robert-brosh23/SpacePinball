@@ -23,6 +23,8 @@ var _collision_polygon_node: CollisionPolygon2D
 ## Whether we will use the physics material or the tiles themselves.
 @export var reference_physics_material: bool = true
 
+@export var physics_layer: int = 0
+
 ## Tiles that have a physics layer return the original orientation of the physics
 ## layer by default. With this enabled you can respect the orientation within your
 ## tilemap. This is mainly provided so if this is fixed within Godot you can
@@ -148,7 +150,7 @@ func get_tiles_with_physics() -> Array:
 	for cell_pos in used_cells:
 		var tile_data = tilemaplayer_node.get_cell_tile_data(cell_pos)
 		# We will use the local and the tilesize to calculate all of the physics points.
-		if tile_data.get_collision_polygons_count(0) != 0:
+		if tile_data.get_collision_polygons_count(physics_layer) != 0:
 			var flip_h := 0
 			var flip_v := 0
 			if force_respect_flipped_tiles_physics:
@@ -156,19 +158,20 @@ func get_tiles_with_physics() -> Array:
 				flip_h = alt & TileSetAtlasSource.TRANSFORM_FLIP_H
 				flip_v = alt & TileSetAtlasSource.TRANSFORM_FLIP_V
 			var local_pos = tilemaplayer_node.map_to_local(cell_pos)
-			var physics_coords = tile_data.get_collision_polygon_points(0, 0)
-			var shape: Array[Vector2] = []
-			
-			for coord in physics_coords:
-				if flip_h and !flip_v:
-					shape.append(Vector2((coord.x * -1) + local_pos.x, coord.y + local_pos.y))
-				elif flip_v and !flip_h:
-					shape.append(Vector2(coord.x + local_pos.x, (coord.y * -1) + local_pos.y))
-				elif flip_h and flip_v:
-					shape.append(Vector2((coord.x * -1) + local_pos.x, (coord.y * -1) + local_pos.y))
-				else:
-					shape.append(Vector2(coord.x + local_pos.x, coord.y + local_pos.y))
-			shapes.append(shape)
+			for polygon_num in range(tile_data.get_collision_polygons_count(physics_layer)):
+				var physics_coords = tile_data.get_collision_polygon_points(physics_layer, polygon_num)
+				var shape: Array[Vector2] = []
+				
+				for coord in physics_coords:
+					if flip_h and !flip_v:
+						shape.append(Vector2((coord.x * -1) + local_pos.x, coord.y + local_pos.y))
+					elif flip_v and !flip_h:
+						shape.append(Vector2(coord.x + local_pos.x, (coord.y * -1) + local_pos.y))
+					elif flip_h and flip_v:
+						shape.append(Vector2((coord.x * -1) + local_pos.x, (coord.y * -1) + local_pos.y))
+					else:
+						shape.append(Vector2(coord.x + local_pos.x, coord.y + local_pos.y))
+				shapes.append(shape)
 	return shapes
 	
 func apply_tilemap_layer_offset() -> void:

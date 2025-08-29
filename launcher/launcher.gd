@@ -7,6 +7,10 @@ const MAX_LAUNCHER_VELOCITY = -500.0
 @onready var spring_sprite = $SpringSprite
 @onready var launcher_sprite = $LauncherSprite
 @onready var static_body_2d = $StaticBody2D
+@onready var audio_stream_player = $AudioStreamPlayer
+
+var wind_up_wav = preload("res://assets/sounds/wind_up.wav")
+var release_wav = preload("res://assets/sounds/release.wav")
 
 var charge_time := 0.0
 var charging := false
@@ -25,8 +29,10 @@ func _physics_process(delta: float) -> void:
 func process_controls() -> void:
 	if Input.is_action_just_pressed("launcher"):
 		charging = true
+		play_wind_up_wav()
 	if Input.is_action_just_released("launcher"):
 		charging = false
+		play_release_wav()
 		
 func process_charge(delta: float) -> void:
 	if charging == false and charge_time == 0.0:
@@ -56,6 +62,18 @@ func move_to(object: Node2D, target_pos: Vector2):
 
 func _on_tween_finished():
 	static_body_2d.constant_linear_velocity = Vector2.ZERO
+	
+func play_wind_up_wav():
+	audio_stream_player.stream = wind_up_wav
+	audio_stream_player.volume_db = 0.0
+	audio_stream_player.play()
+	
+func play_release_wav():
+	audio_stream_player.stop()
+	audio_stream_player.stream = release_wav
+	audio_stream_player.volume_db = percent_charged * 25.0 - 25.0
+	audio_stream_player.play()
+	
 	
 	
 	

@@ -1,17 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://duj1xojs3repf"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://43nbgdx4o18r"]
 
-[ext_resource type="PackedScene" uid="uid://5aqihekkp2hm" path="res://flipper/flipper.tscn" id="1_0xm2m"]
-[ext_resource type="TileSet" uid="uid://43nbgdx4o18r" path="res://walls/walls_tileset.tres" id="1_5vw27"]
-[ext_resource type="PackedScene" uid="uid://8q6bruih8sxw" path="res://ball/ball.tscn" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://c3j8oc80rrwip" path="res://assets/sprites/Pinball_walls_sheet.png" id="3_272bh"]
-[ext_resource type="PackedScene" uid="uid://dgl28nwkq7blm" path="res://flipper/flipper_left.tscn" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://bs6f6bvxxk3rk" path="res://bumper/bumper.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://ceo0p7kybnrsx" path="res://launcher/launcher.tscn" id="7_272bh"]
-[ext_resource type="Script" uid="uid://bdaxohp46kcsn" path="res://addons/tilemapcollidergenerator/generator.gd" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://u4fh4i3dlqgd" path="res://triangular_panel/triangular_panel.tscn" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://c3j8oc80rrwip" path="res://assets/sprites/Pinball_walls_sheet.png" id="1_752ov"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kek77"]
-texture = ExtResource("3_272bh")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5vw27"]
+texture = ExtResource("1_752ov")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8.5, 4, 4, 4, 4, 8.5, -4, 8.5, -4, -4, 8.5, -4)
 1:0/0 = 0
@@ -213,100 +205,9 @@ texture = ExtResource("3_272bh")
 2:12/0/physics_layer_1/polygon_0/points = PackedVector2Array(8, -4, -8, -4, -8, -8, 8, -8)
 2:12/0/physics_layer_1/polygon_1/points = PackedVector2Array(8, 4, -8, 4, -8, 8, 8, 8)
 
-[sub_resource type="TileSet" id="TileSet_4c57u"]
-tile_size = Vector2i(2, 2)
+[resource]
 physics_layer_0/collision_layer = 0
 physics_layer_0/collision_mask = 0
 physics_layer_1/collision_layer = 0
 physics_layer_1/collision_mask = 0
-custom_data_layer_0/name = "force"
-custom_data_layer_0/type = 0
-sources/2 = SubResource("TileSetAtlasSource_kek77")
-
-[node name="Main" type="Node2D"]
-
-[node name="TilemapLayers" type="Node2D" parent="."]
-
-[node name="SecondLayer" type="TileMapLayer" parent="TilemapLayers"]
-visible = false
-position = Vector2(4, -34)
-tile_map_data = PackedByteArray("AAAkAEYAAgAAAA4AAAAkAD4AAgAAAA4AAAAkADYAAgAAAA4AAAAkAB4AAgAAAAwAAAAkACYAAgAAAA0AAAAkAC4AAgAAAA4AAAAsAB4AAgABAAwAAAA0AB4AAgACAAwAAAA8AB4AAgACAAwAAABEAB4AAgADAAwAAABMAB4AAgAEAAwAAABMACUAAgAEAA0AAAAkAE4AAgAAAA4AAAAkAFYAAgAAAA4AAAA=")
-tile_set = SubResource("TileSet_4c57u")
-
-[node name="BaseLayer" type="TileMapLayer" parent="TilemapLayers"]
-position = Vector2(8, 0)
-tile_map_data = PackedByteArray("AAACAAMAAgAAAAEAAAACAAQAAgAAAAEAAAACAAUAAgAAAAEAAAACAAYAAgAAAAEAAAACAAcAAgAAAAEAAAACAAgAAgAAAAEAAAAMAAMAAgACAAEAAAAMAAQAAgACAAEAAAAMAAUAAgACAAEAAAAMAAYAAgACAAEAAAAMAAcAAgACAAEAAAAMAAgAAgACAAEAAAAOAAwAAgACAAIAAAAOAAsAAgACAAEAAAAOAAoAAgACAAEAAAAOAAkAAgACAAEAAAAOAAgAAgACAAEAAAAOAAcAAgACAAEAAAAOAAYAAgACAAEAAAAOAAUAAgACAAEAAAAOAAQAAgACAAEAAAAOAAMAAgACAAEAAAANAAsAAgAAAAEAAAANAAoAAgAAAAEAAAANAAkAAgAAAAEAAAANAAgAAgAAAAEAAAANAAcAAgAAAAEAAAANAAYAAgAAAAEAAAANAAUAAgAAAAEAAAANAAQAAgAAAAEAAAANAAMAAgAAAAEAAAANAAwAAgAAAAIAAAACAAIAAgAAAAEAAAADAAEAAgACAAYAAAAEAAEAAgADAAYAAAANAAEAAgAAAAgAAAANAAIAAgAFAAAAAAAOAAIAAgACAAEAAAACAAEAAgABAAcAAAADAAAAAgACAAUAAAAEAAAAAgADAAUAAAAFAAAAAgABAAAAAAAGAAAAAgABAAAAAAAHAAAAAgABAAAAAAAIAAAAAgABAAAAAAAJAAAAAgABAAAAAAAKAAAAAgABAAAAAAALAAAAAgABAAAAAAAMAAAAAgABAAAAAAAMAAIAAgADAAAAAAANAAAAAgAAAAcAAAAOAAEAAgAAAAcAAAACAAoAAgADAAgAAAADAAoAAgADAAcAAAADAAsAAgADAAgAAAAEAAsAAgADAAcAAAAEAAwAAgADAAgAAAAFAAwAAgADAAcAAAAKAAsAAgACAAcAAAALAAoAAgACAAcAAAAJAAwAAgACAAcAAAAKAAwAAgACAAgAAAALAAsAAgACAAgAAAAMAAoAAgACAAgAAAACAAkAAgAAAAEAAAAMAAkAAgACAAEAAAA=")
-tile_set = ExtResource("1_5vw27")
-
-[node name="Flipper_right" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(158, 211)
-
-[node name="Flipper_left" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(98, 211)
-rotation = 3.14159
-scale = Vector2(1, -1)
-
-[node name="Ball" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(181, 127)
-
-[node name="Ball2" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(90, 56)
-
-[node name="Ball3" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(172, 99)
-
-[node name="Bumper" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(165, 79)
-
-[node name="Bumper2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(120, 79)
-
-[node name="Bumper3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(141, 41)
-
-[node name="TileMapCollisionGenerator" type="StaticBody2D" parent="."]
-script = ExtResource("8_5vw27")
-tilemap_layer_node_path = NodePath("../TilemapLayers/BaseLayer")
-metadata/_custom_type_script = "uid://bdaxohp46kcsn"
-
-[node name="TMCG-CollisionPolygon2D-0" type="CollisionPolygon2D" parent="TileMapCollisionGenerator"]
-visible = false
-position = Vector2(8, 0)
-polygon = PackedVector2Array(208.5, 4.5, 235.5, 31.5, 236, 31.5, 236, 204, 212, 204, 212, 44, 204, 44, 204, 160.5, 203.5, 160.5, 156, 208, 148, 208, 196, 160, 196, 36, 220, 36, 220, 196, 228, 196, 228, 32, 208, 12, 80, 12, 48, 28, 44, 32, 44, 160, 92, 208, 84, 208, 36.5, 160.5, 36, 160.5, 36, 31.5, 36.5, 31.5, 48, 20, 79.5, 4.25, 79.5, 4, 208.5, 4)
-
-[node name="TileMapCollisionGenerator2" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("8_5vw27")
-tilemap_layer_node_path = NodePath("../TilemapLayers/SecondLayer")
-physics_layer = 1
-metadata/_custom_type_script = "uid://bdaxohp46kcsn"
-
-[node name="TMCG-CollisionPolygon2D-0" type="CollisionPolygon2D" parent="TileMapCollisionGenerator2"]
-visible = false
-position = Vector2(4, 0)
-polygon = PackedVector2Array(157, 70, 156.667, 69, 156, 69, 155, 65, 154, 63, 152, 61, 149, 59, 145, 58, 142, 57, 84, 57, 81, 58, 77, 59, 75, 60, 73, 62, 71, 65, 70, 69, 69, 72, 69, 149, 65, 149, 65, 53, 161, 53, 161, 99, 157, 99)
-
-[node name="TMCG-CollisionPolygon2D-1" type="CollisionPolygon2D" parent="TileMapCollisionGenerator2"]
-visible = false
-position = Vector2(4, 0)
-polygon = PackedVector2Array(149, 99, 145, 99, 145, 69, 81, 69, 81, 149, 77, 149, 77, 73, 79, 69, 81, 67, 85, 65, 141, 65, 145, 67, 147, 67, 149, 71)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -2
-custom_minimum_size = Vector2(256, 240)
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(1.35368e-07, 0.0505592, 0.13571, 1)
-
-[node name="Launcher" parent="." instance=ExtResource("7_272bh")]
-z_index = -1
-position = Vector2(232, 187)
-
-[node name="TriangularPanel" parent="." instance=ExtResource("8_kek77")]
-position = Vector2(170, 167)
-
-[node name="TriangularPanel2" parent="." instance=ExtResource("8_kek77")]
-position = Vector2(86, 167)
-scale = Vector2(-1, 1)
-wall_angle = 1.204
+sources/2 = SubResource("TileSetAtlasSource_5vw27")
