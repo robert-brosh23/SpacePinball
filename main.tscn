@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=4 uid="uid://duj1xojs3repf"]
 
 [ext_resource type="PackedScene" uid="uid://5aqihekkp2hm" path="res://flipper/flipper.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bsoqx2h4uvxkd" path="res://main.gd" id="1_4c57u"]
 [ext_resource type="TileSet" uid="uid://43nbgdx4o18r" path="res://walls/walls_tileset.tres" id="1_5vw27"]
-[ext_resource type="PackedScene" uid="uid://8q6bruih8sxw" path="res://ball/ball.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://c3j8oc80rrwip" path="res://assets/sprites/Pinball_walls_sheet.png" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://dgl28nwkq7blm" path="res://flipper/flipper_left.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bs6f6bvxxk3rk" path="res://bumper/bumper.tscn" id="6_7mycd"]
@@ -224,6 +224,7 @@ custom_data_layer_0/type = 0
 sources/2 = SubResource("TileSetAtlasSource_kek77")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_4c57u")
 
 [node name="TilemapLayers" type="Node2D" parent="."]
 
@@ -235,34 +236,25 @@ tile_set = SubResource("TileSet_4c57u")
 
 [node name="BaseLayer" type="TileMapLayer" parent="TilemapLayers"]
 position = Vector2(8, 0)
-tile_map_data = PackedByteArray("AAACAAMAAgAAAAEAAAACAAQAAgAAAAEAAAACAAUAAgAAAAEAAAACAAYAAgAAAAEAAAACAAcAAgAAAAEAAAACAAgAAgAAAAEAAAAMAAMAAgACAAEAAAAMAAQAAgACAAEAAAAMAAUAAgACAAEAAAAMAAYAAgACAAEAAAAMAAcAAgACAAEAAAAMAAgAAgACAAEAAAAOAAwAAgACAAIAAAAOAAsAAgACAAEAAAAOAAoAAgACAAEAAAAOAAkAAgACAAEAAAAOAAgAAgACAAEAAAAOAAcAAgACAAEAAAAOAAYAAgACAAEAAAAOAAUAAgACAAEAAAAOAAQAAgACAAEAAAAOAAMAAgACAAEAAAANAAsAAgAAAAEAAAANAAoAAgAAAAEAAAANAAkAAgAAAAEAAAANAAgAAgAAAAEAAAANAAcAAgAAAAEAAAANAAYAAgAAAAEAAAANAAUAAgAAAAEAAAANAAQAAgAAAAEAAAANAAMAAgAAAAEAAAANAAwAAgAAAAIAAAACAAIAAgAAAAEAAAADAAEAAgACAAYAAAAEAAEAAgADAAYAAAANAAEAAgAAAAgAAAANAAIAAgAFAAAAAAAOAAIAAgACAAEAAAACAAEAAgABAAcAAAADAAAAAgACAAUAAAAEAAAAAgADAAUAAAAFAAAAAgABAAAAAAAGAAAAAgABAAAAAAAHAAAAAgABAAAAAAAIAAAAAgABAAAAAAAJAAAAAgABAAAAAAAKAAAAAgABAAAAAAALAAAAAgABAAAAAAAMAAAAAgABAAAAAAAMAAIAAgADAAAAAAANAAAAAgAAAAcAAAAOAAEAAgAAAAcAAAACAAoAAgADAAgAAAADAAoAAgADAAcAAAADAAsAAgADAAgAAAAEAAsAAgADAAcAAAAEAAwAAgADAAgAAAAFAAwAAgADAAcAAAAKAAsAAgACAAcAAAALAAoAAgACAAcAAAAJAAwAAgACAAcAAAAKAAwAAgACAAgAAAALAAsAAgACAAgAAAAMAAoAAgACAAgAAAACAAkAAgAAAAEAAAAMAAkAAgACAAEAAAA=")
+tile_map_data = PackedByteArray("AAACAAMAAgAAAAEAAAACAAQAAgAAAAEAAAACAAUAAgAAAAEAAAACAAYAAgAAAAEAAAACAAcAAgAAAAEAAAACAAgAAgAAAAEAAAAMAAMAAgACAAEAAAAMAAQAAgACAAEAAAAMAAUAAgACAAEAAAAMAAYAAgACAAEAAAAMAAcAAgACAAEAAAAMAAgAAgACAAEAAAAOAAwAAgACAAIAAAAOAAsAAgACAAEAAAAOAAoAAgACAAEAAAAOAAkAAgACAAEAAAAOAAgAAgACAAEAAAAOAAcAAgACAAEAAAAOAAYAAgACAAEAAAAOAAUAAgACAAEAAAAOAAQAAgACAAEAAAAOAAMAAgACAAEAAAANAAsAAgAAAAEAAAANAAoAAgAAAAEAAAANAAkAAgAAAAEAAAANAAgAAgAAAAEAAAANAAcAAgAAAAEAAAANAAYAAgAAAAEAAAANAAUAAgAAAAEAAAANAAQAAgAAAAEAAAANAAMAAgAAAAEAAAANAAwAAgAAAAIAAAACAAIAAgAAAAEAAAADAAEAAgACAAYAAAAEAAEAAgADAAYAAAANAAEAAgAAAAgAAAANAAIAAgAFAAAAAAAOAAIAAgACAAEAAAACAAEAAgABAAcAAAADAAAAAgACAAUAAAAEAAAAAgADAAUAAAAFAAAAAgABAAAAAAAGAAAAAgABAAAAAAAHAAAAAgABAAAAAAAIAAAAAgABAAAAAAAJAAAAAgABAAAAAAAKAAAAAgABAAAAAAALAAAAAgABAAAAAAAMAAAAAgABAAAAAAAMAAIAAgADAAAAAAANAAAAAgAAAAcAAAAOAAEAAgAAAAcAAAACAAoAAgADAAgAAAADAAoAAgADAAcAAAADAAsAAgADAAgAAAAEAAsAAgADAAcAAAAEAAwAAgADAAgAAAAFAAwAAgADAAcAAAAKAAsAAgACAAcAAAALAAoAAgACAAcAAAAJAAwAAgACAAcAAAAKAAwAAgACAAgAAAALAAsAAgACAAgAAAAMAAoAAgACAAgAAAACAAkAAgAAAAEAAAAMAAkAAgACAAEAAAAJAA0AAgACAAgAAAAFAA0AAgADAAgAAAA=")
 tile_set = ExtResource("1_5vw27")
 
 [node name="Flipper_right" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(158, 211)
+position = Vector2(154, 215)
 
 [node name="Flipper_left" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(98, 211)
+position = Vector2(102, 215)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="Ball" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(181, 127)
-
-[node name="Ball2" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(90, 56)
-
-[node name="Ball3" parent="." instance=ExtResource("2_h2yge")]
-position = Vector2(172, 99)
-
 [node name="Bumper" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(165, 79)
+position = Vector2(152, 79)
 
 [node name="Bumper2" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(120, 79)
+position = Vector2(107, 79)
 
 [node name="Bumper3" parent="." instance=ExtResource("6_7mycd")]
-position = Vector2(141, 41)
+position = Vector2(128, 41)
 
 [node name="TileMapCollisionGenerator" type="StaticBody2D" parent="."]
 script = ExtResource("8_5vw27")
@@ -272,7 +264,7 @@ metadata/_custom_type_script = "uid://bdaxohp46kcsn"
 [node name="TMCG-CollisionPolygon2D-0" type="CollisionPolygon2D" parent="TileMapCollisionGenerator"]
 visible = false
 position = Vector2(8, 0)
-polygon = PackedVector2Array(208.5, 4.5, 235.5, 31.5, 236, 31.5, 236, 204, 212, 204, 212, 44, 204, 44, 204, 160.5, 203.5, 160.5, 156, 208, 148, 208, 196, 160, 196, 36, 220, 36, 220, 196, 228, 196, 228, 32, 208, 12, 80, 12, 48, 28, 44, 32, 44, 160, 92, 208, 84, 208, 36.5, 160.5, 36, 160.5, 36, 31.5, 36.5, 31.5, 48, 20, 79.5, 4.25, 79.5, 4, 208.5, 4)
+polygon = PackedVector2Array(208.5, 4.5, 235.5, 31.5, 236, 31.5, 236, 204, 212, 204, 212, 44, 204, 44, 204, 160.5, 203.5, 160.5, 144, 220, 144, 212, 196, 160, 196, 36, 220, 36, 220, 196, 228, 196, 228, 32, 208, 12, 80, 12, 48, 28, 44, 32, 44, 160, 96, 212, 96, 220, 36.5, 160.5, 36, 160.5, 36, 31.5, 36.5, 31.5, 48, 20, 79.5, 4.25, 79.5, 4, 208.5, 4)
 
 [node name="TileMapCollisionGenerator2" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -304,9 +296,9 @@ z_index = -1
 position = Vector2(232, 187)
 
 [node name="TriangularPanel" parent="." instance=ExtResource("8_kek77")]
-position = Vector2(170, 167)
+position = Vector2(167, 170)
 
 [node name="TriangularPanel2" parent="." instance=ExtResource("8_kek77")]
-position = Vector2(86, 167)
+position = Vector2(89, 170)
 scale = Vector2(-1, 1)
 wall_angle = 1.204
